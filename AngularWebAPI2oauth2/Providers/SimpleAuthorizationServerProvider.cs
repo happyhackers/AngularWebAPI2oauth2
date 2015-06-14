@@ -49,7 +49,7 @@ namespace AngularWebAPI2oauth2.Providers
                     context.SetError("invalid_clientId", "Client secret should be sent.");
                     return Task.FromResult<object>(null);
                 }
-                if (client.Secret != Helper.GetHash(clientSecret))
+                if (client.Secret != AuthHelper.GetHash(clientSecret))
                 {
                     context.SetError("invalid_clientId", "Client secret is invalid.");
                     return Task.FromResult<object>(null);

@@ -25,7 +25,7 @@ namespace AngularWebAPI2oauth2.Providers
 
                 var token = new RefreshToken
                 {
-                    Id = Helper.GetHash(refreshTokenId),
+                    Id = AuthHelper.GetHash(refreshTokenId),
                     ClientId = clientid,
                     Subject = context.Ticket.Identity.Name,
                     IssuedUtc = DateTime.UtcNow,
@@ -52,7 +52,7 @@ namespace AngularWebAPI2oauth2.Providers
             var allowedOrigin = context.OwinContext.Get<string>("as:clientAllowedOrigin");
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
 
-            string hashedTokenId = Helper.GetHash(context.Token);
+            string hashedTokenId = AuthHelper.GetHash(context.Token);
 
             using (var repo = new AuthRepository())
             {

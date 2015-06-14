@@ -12,13 +12,21 @@ using Owin;
 [assembly: OwinStartup(typeof(Startup))]
 namespace AngularWebAPI2oauth2
 {
+    /// <summary>
+    /// Startup logic
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
         {
             ConfigureOAuth(app);
             var config = new HttpConfiguration();
             AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
@@ -26,9 +34,27 @@ namespace AngularWebAPI2oauth2
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
+
+            //Database.SetInitializer(new SeedAuth());
+            //using (var db = new AuthContext())
+            //{
+            //    {
+            //        db.Database.Initialize(true);
+            //    }
+            //}
+            //Database.SetInitializer(new SeedApplication());
+            //using (var db = new ApplicationContext())
+            //{
+            //    {
+            //        db.Database.Initialize(true);
+            //    }
+            //}
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
         public void ConfigureOAuth(IAppBuilder app)
         {
             var oAuthServerOptions = new OAuthAuthorizationServerOptions
@@ -46,6 +72,5 @@ namespace AngularWebAPI2oauth2
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 
         }
-
     }
 }
