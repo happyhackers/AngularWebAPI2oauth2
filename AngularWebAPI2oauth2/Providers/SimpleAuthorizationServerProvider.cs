@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AngularWebAPI2oauth2.DAL;
-using AngularWebAPI2oauth2.Models;
 using AngularWebAPI2oauth2.Models.Auth;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
@@ -14,7 +13,6 @@ namespace AngularWebAPI2oauth2.Providers
     {
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-
             string clientId;
             string clientSecret;
             Client client;
@@ -71,7 +69,6 @@ namespace AngularWebAPI2oauth2.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-
             var allowedOrigin = context.OwinContext.Get<string>("as:clientAllowedOrigin") ?? "*";
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });

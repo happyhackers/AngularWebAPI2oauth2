@@ -2,7 +2,7 @@
 using System.Web.Http;
 using AngularWebAPI2oauth2.DAL;
 
-namespace AngularWebAPI2oauth2.Controllers
+namespace AngularWebAPI2oauth2.Controllers.Auth
 {
     [RoutePrefix("api/RefreshTokens")]
     public class RefreshTokensController : ApiController
