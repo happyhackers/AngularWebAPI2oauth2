@@ -207,7 +207,7 @@
   <ItemGroup>
     <Content Include="Content\Bootstrap\bootstrap.css" />
     <Content Include="Content\Bootstrap\bootstrap.min.css" />
-    <Content Include="Content\CSS-reset\CSSReset.css" />
+    <Content Include="Content\CSS-Reset\CSSReset.css" />
     <Content Include="Content\Font-Awesome\font-awesome.css" />
     <Content Include="Content\Font-Awesome\font-awesome.min.css" />
     <Content Include="favicon.ico" />
