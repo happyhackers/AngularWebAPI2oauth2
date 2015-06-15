@@ -1,0 +1,50 @@
+﻿(function () {
+    'use strict';
+
+    angular.module('app')
+        .config(config);
+
+    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+
+    function config($stateProvider, $urlRouterProvider) {
+
+        $urlRouterProvider.otherwise('/home');
+
+        $stateProvider
+            .state('login', {
+                url: '/login',
+                data: {},
+                templateUrl: '/Scripts/app/templates/login.html',
+                controller: 'loginController',
+                controllerAs: 'vm'
+            })
+            .state("logout", {
+                url: '/logout',
+                data: { roles: ['user'] },
+                templateUrl: '/Scripts/app/templates/logout.html',
+                controller: 'logoutController',
+                controllerAs: 'vm'
+            })
+            .state('authed', {
+                url: '',
+                'abstract': true,
+                data: { authed: true },
+                template: '<div data-ui-view></div>',
+                controllerAs: 'vm'
+            })
+            .state("accessdenied", {
+                parent: 'authed',
+                url: '/denied',
+                data: { authed: true },
+                templateUrl: 'Scripts/app/templates/accessdenied.html'
+            })
+            .state('home', {
+                parent: 'authed',
+                url: '/home',
+                data: { authed: true },
+                templateUrl: '/Scripts/app/templates/home.html',
+                controller: 'homeController',
+                controllerAs: 'vm'
+            });
+    };
+})();
