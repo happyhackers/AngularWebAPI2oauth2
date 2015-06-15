@@ -10,6 +10,9 @@ using Microsoft.Owin.Security.OAuth;
 
 namespace AngularWebAPI2oauth2.Providers
 {
+    /// <summary>
+    /// Handles client and user authorization
+    /// </summary>
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
