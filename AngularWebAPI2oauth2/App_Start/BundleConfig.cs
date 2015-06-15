@@ -7,28 +7,27 @@ namespace AngularWebAPI2oauth2
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/vendor/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/vendor/bootstrap.js",
-                      "~/Scripts/vendor/respond.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Content/Site.css",
                       "~/Content/font-awesome.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/vendor/external").Include(
+                        "~/Scripts/vendor/jquery-{version}.js",
+                        "~/Scripts/vendor/bootstrap.js",
+                        "~/Scripts/vendor/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/angular").Include(
                       "~/Scripts/vendor/angular.min.js",
                       "~/Scripts/vendor/angular-ui-router.min.js",
                       "~/Scripts/vendor/angular-animate.min.js",
                       "~/Scripts/vendor/angular-resource.min.js",
-                      "~/Scripts/vendor/loading-bar.js"
+                      "~/Scripts/vendor/loading-bar.js",
+                      "~/Scripts/vendor/angular-local-storage.min.js"
                       ));
 
-            bundles.Add(new ScriptBundle("~/bundles/app/configs").IncludeDirectory(
-                      "~/Scripts/app/configs/",
+            bundles.Add(new ScriptBundle("~/bundles/app/modules").IncludeDirectory(
+                      "~/Scripts/app/modules/",
                       "*.js",
                       true));
 

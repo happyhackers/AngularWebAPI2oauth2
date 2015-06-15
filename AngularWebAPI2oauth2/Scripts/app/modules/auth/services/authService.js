@@ -9,7 +9,7 @@
 
     function authService($rootScope, $state, $http, $q, localStorageService, authSettings) {
         var service = {
-            authentication: { isAuth: false, userName: "", useRefreshTokens: false, roles: [], companyName: 'Easy Storage' },
+            authentication: { isAuth: false, userName: "", useRefreshTokens: false, roles: []},
             authorize: authorize,
             fillAuthData: fillAuthData,
             isInAnyRole: isInAnyRole,
@@ -119,7 +119,6 @@
             service.authentication.userName = "";
             service.authentication.useRefreshTokens = false;
             service.authentication.roles = [];
-            service.authentication.companyName = 'Easy Storage';
         }
 
         /**
@@ -133,7 +132,6 @@
                 service.authentication.userName = authData.userName;
                 service.authentication.useRefreshTokens = authData.useRefreshTokens;
                 service.authentication.roles = authData.roles;
-                service.authentication.companyName = authData.companyName;
             }
         }
 

@@ -1,0 +1,19 @@
+﻿<div class="row">
+    <div class="col-lg-3 col-lg-offset-4">
+        <form role="form">
+            <h2 >Log in</h2>
+            <input type="text" class="form-control" placeholder="Username" data-ng-model="vm.loginData.userName" required autofocus>
+            <input type="password" class="form-control" placeholder="Password" data-ng-model="vm.loginData.password" required>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" data-ng-model="vm.loginData.useRefreshTokens"><strong>Keep me logged in</strong>
+                </label>
+            </div>
+            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="vm.login()">Log in</button>
+            <div data-ng-hide="vm.message == ''" class="alert alert-danger">
+                {{vm.message}}
+            </div>
+        </form>
+
+    </div>
+</div>

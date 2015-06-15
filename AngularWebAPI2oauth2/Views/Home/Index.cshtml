@@ -43,14 +43,14 @@
         }
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/vendor/external")
     @Scripts.Render("~/bundles/vendor/angular")
 
     <!-- Load app main module -->
     @Scripts.Render("~/Scripts/app/app.js")
+    @Scripts.Render("~/Scripts/app/config.js")
     <!-- Load configs -->
-    @Scripts.Render("~/bundles/app/configs")
+    @Scripts.Render("~/bundles/app/modules")
     <!-- Load services -->
     @Scripts.Render("~/bundles/app/services")
     <!-- Load controllers -->

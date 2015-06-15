@@ -4,6 +4,8 @@
         'ui.router',
         'ngAnimate',
         'ngResource',
-        'angular-loading-bar'
+        'angular-loading-bar',
+        'LocalStorageModule',
+        'auth'
     ]);
 })();

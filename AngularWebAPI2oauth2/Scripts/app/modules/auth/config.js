@@ -3,14 +3,21 @@
 
     angular
         .module('auth')
+        .config(config)
         .run(run)
         .constant('authSettings', {
             apiServiceBaseUri: '/',
-            clientId: '',
+            clientId: 'AngularApp',
             loginState: 'login',
             accessDeniedState: 'accessdenied',
             tokenEndpoint: '/token'
         });
+
+    config.$inject = ['$httpProvider'];
+
+    function config($httpProvider) {
+        $httpProvider.interceptors.push('httpInterceptorService');
+    }
 
     run.$inject = ['$rootScope', '$state', '$stateParams', 'authService'];
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AngularWebAPI2oauth2.DAL;
@@ -86,6 +87,15 @@ namespace AngularWebAPI2oauth2.Providers
                 identity = repo.CreateClaimsIdentity(user, context.Options.AuthenticationType);
             }
 
+            var roles = "[";
+            foreach (var identityUserClaim in identity.Claims.Where(identityUserClaim => identityUserClaim.Type == ClaimTypes.Role))
+            {
+                if (roles != "[")
+                    roles += ", ";
+                roles += "\"" + identityUserClaim.Value + "\"";
+            }
+            roles += "]";
+
             var props = new AuthenticationProperties(new Dictionary<string, string>
             {
                 { 
@@ -93,6 +103,9 @@ namespace AngularWebAPI2oauth2.Providers
                 },
                 { 
                     "userName", context.UserName
+                },
+                {
+                    "roles", roles
                 }
             });
 

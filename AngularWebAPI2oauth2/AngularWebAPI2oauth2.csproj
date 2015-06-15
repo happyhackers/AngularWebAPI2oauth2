@@ -166,6 +166,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\app\directives\" />
     <Folder Include="Scripts\app\filters\" />
+    <Folder Include="Scripts\app\services\" />
     <Folder Include="Scripts\i18n\" />
   </ItemGroup>
   <ItemGroup>
@@ -211,12 +212,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\app\controllers\loginController.js" />
+    <Content Include="Scripts\app\controllers\logoutController.js" />
     <Content Include="Scripts\app\modules\auth\auth.js" />
     <Content Include="Scripts\app\modules\auth\config.js" />
     <Content Include="Scripts\app\modules\auth\services\authService.js" />
     <Content Include="Scripts\app\modules\auth\services\httpBufferService.js" />
     <Content Include="Scripts\app\modules\auth\services\httpInterceptorService.js" />
-    <Content Include="Scripts\app\services\factory1.js" />
+    <Content Include="Scripts\app\templates\accessdenied.html" />
+    <Content Include="Scripts\app\templates\login.html" />
+    <Content Include="Scripts\app\templates\logout.html" />
     <Content Include="Scripts\vendor\angular-animate.js" />
     <Content Include="Scripts\vendor\angular-animate.min.js" />
     <Content Include="Scripts\vendor\angular-aria.js" />
@@ -226,6 +231,7 @@
     <Content Include="Scripts\vendor\angular-csp.css" />
     <Content Include="Scripts\vendor\angular-loader.js" />
     <Content Include="Scripts\vendor\angular-loader.min.js" />
+    <Content Include="Scripts\vendor\angular-local-storage.min.js" />
     <Content Include="Scripts\vendor\angular-messages.js" />
     <Content Include="Scripts\vendor\angular-messages.min.js" />
     <Content Include="Scripts\vendor\angular-mocks.js" />
@@ -243,7 +249,7 @@
     <Content Include="Scripts\vendor\angular.js" />
     <Content Include="Scripts\vendor\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\configs\appConfig.js" />
+    <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\app\controllers\homeController.js" />
     <Content Include="Scripts\app\templates\home.html" />
     <Content Include="Scripts\vendor\bootstrap.js" />
