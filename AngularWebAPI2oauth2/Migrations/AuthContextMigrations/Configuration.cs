@@ -26,7 +26,7 @@ namespace AngularWebAPI2oauth2.Migrations.AuthContextMigrations
                 ApplicationType = ApplicationTypes.JavaScript,
                 Active = true,
                 RefreshTokenLifeTime = 7200,
-                AllowedOrigin = "*" //TODO set the actual allowed origin
+                AllowedOrigin = "*" //TODO: set the actual allowed origin
             });
 
             context.Clients.AddOrUpdate(x => x.Id, new Client
@@ -42,7 +42,7 @@ namespace AngularWebAPI2oauth2.Migrations.AuthContextMigrations
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             
-            /* ..:: [ ROLES ] ::..*/
+            /* ..:: [ ROLES ] ::.. */
             var admin = new IdentityRole("Admin");
             if (!roleManager.RoleExists(admin.Name))
                 roleManager.Create(admin);
@@ -55,7 +55,7 @@ namespace AngularWebAPI2oauth2.Migrations.AuthContextMigrations
             if (userManager.Users.Any(u => u.UserName == "kalle"))
                 return;
 
-            /* ..:: [ CREATE USERS ] ::..*/
+            /* ..:: [ CREATE USERS ] ::.. */
             var kalle = new IdentityUser
             {
                 UserName = "kalle",
@@ -69,7 +69,7 @@ namespace AngularWebAPI2oauth2.Migrations.AuthContextMigrations
                 UserName = "alban",
             };
 
-            /* ..:: [ CONFIG USERS ]::.. */
+            /* ..:: [ CONFIG USERS ] ::.. */
             userManager.Create(kalle, "kalle123");
             userManager.Create(peter, "peter123");
             userManager.Create(alban, "alban123");
