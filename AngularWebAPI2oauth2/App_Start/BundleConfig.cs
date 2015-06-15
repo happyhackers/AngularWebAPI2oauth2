@@ -8,10 +8,10 @@ namespace AngularWebAPI2oauth2
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                        "~/Content/Bootstrap/bootstrap.min.css",
-                        "~/Content/Font-Awesome/font-awesome.min.css",
                         "~/Content/Site.css",
-                        "~/Content/CSS-Reset/CSSReset.css"
+                        "~/Content/CSS-Reset/CSSReset.css",
+                        "~/Content/Bootstrap/bootstrap.min.css",
+                        "~/Content/Font-Awesome/font-awesome.min.css"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/external").Include(
