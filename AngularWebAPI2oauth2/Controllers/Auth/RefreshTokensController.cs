@@ -9,7 +9,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
     /// This resource represents all refreshtokens issued by the server.
     /// It gives the ability to control user sessions
     /// </summary>
-    [Authorize(Roles = "Admin, Owner")]
+    [Authorize]
     [RoutePrefix("api/RefreshTokens")]
     public class RefreshTokensController : ApiController
     {
@@ -29,6 +29,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
         /// </summary>
         /// <returns></returns>
         [Route("")]
+        [Authorize(Roles = "Admin, Owner")]
         public IHttpActionResult GetRefreshTokens()
         {
             return Ok(_repository.GetAllRefreshTokens());
