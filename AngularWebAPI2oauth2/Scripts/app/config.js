@@ -20,7 +20,6 @@
             })
             .state("logout", {
                 url: '/logout',
-                data: { roles: ['user'] },
                 templateUrl: '/Scripts/app/templates/logout.html',
                 controller: 'logoutController',
                 controllerAs: 'vm'
