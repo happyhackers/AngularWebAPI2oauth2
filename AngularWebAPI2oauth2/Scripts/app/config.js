@@ -13,7 +13,6 @@
         $stateProvider
             .state('login', {
                 url: '/login',
-                data: {},
                 templateUrl: '/Scripts/app/templates/login.html',
                 controller: 'loginController',
                 controllerAs: 'vm'

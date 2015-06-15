@@ -34,21 +34,6 @@ namespace AngularWebAPI2oauth2
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
-
-            //Database.SetInitializer(new SeedAuth());
-            //using (var db = new AuthContext())
-            //{
-            //    {
-            //        db.Database.Initialize(true);
-            //    }
-            //}
-            //Database.SetInitializer(new SeedApplication());
-            //using (var db = new ApplicationContext())
-            //{
-            //    {
-            //        db.Database.Initialize(true);
-            //    }
-            //}
         }
 
         /// <summary>
@@ -59,7 +44,7 @@ namespace AngularWebAPI2oauth2
         {
             var oAuthServerOptions = new OAuthAuthorizationServerOptions
             {
-                //Only for demo
+                //TODO Do not allow insecure http in live app
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),

@@ -16,20 +16,21 @@
 
         activate();
 
-        function activate() {
-        }
+        function activate() { }
 
         function login() {
-
-            authService.login(vm.loginData).then(function (response) {
-                if ($rootScope.returnToState)
-                    $state.go($rootScope.returnToState, $rootScope.returnToStateParams);
-                else
-                    $state.go('home');
-            },
-             function (err) {
-                 vm.message = err.error_description;
-             });
+            authService.login(vm.loginData).then(loginSuccessDelegate, loginErrorDelegate);
         };
+
+        function loginErrorDelegate(rejection) {
+            vm.message = rejection.error_description;
+        }
+
+        function loginSuccessDelegate() {
+            if ($rootScope.returnToState)
+                $state.go($rootScope.returnToState, $rootScope.returnToStateParams);
+            else
+                $state.go('home');
+        }
     }
 })();

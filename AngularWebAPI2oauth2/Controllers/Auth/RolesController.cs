@@ -28,7 +28,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
             }
 
             /// <summary>
-            /// 
+            /// Returns all roles registred in the system.
             /// </summary>
             /// <returns></returns>
             public IHttpActionResult GetAllRoles()
@@ -39,7 +39,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
             }
 
             /// <summary>
-            /// 
+            /// Returns all roles assigned to a specific user.
             /// </summary>
             /// <returns></returns>
             public async Task<IHttpActionResult> GetRolesForUser(string userName)
@@ -48,7 +48,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
             }
 
             /// <summary>
-            /// 
+            /// Creates a new role.
             /// </summary>
             /// <param name="model"></param>
             /// <returns></returns>
@@ -66,7 +66,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
             }
 
             /// <summary>
-            /// 
+            /// Deletes a role in the system.
             /// </summary>
             /// <param name="roleName"></param>
             /// <returns></returns>
@@ -79,7 +79,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
             }
 
             /// <summary>
-            /// 
+            /// Assigns roles to a specific user.
             /// </summary>
             /// <param name="model"></param>
             /// <returns></returns>
