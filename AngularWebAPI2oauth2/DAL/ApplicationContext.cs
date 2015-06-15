@@ -6,8 +6,14 @@ using AngularWebAPI2oauth2.Models;
 
 namespace AngularWebAPI2oauth2.DAL
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ApplicationContext : DbContext
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public ApplicationContext() : base("name=ApplicationContext") { }
 
         public override int SaveChanges()
