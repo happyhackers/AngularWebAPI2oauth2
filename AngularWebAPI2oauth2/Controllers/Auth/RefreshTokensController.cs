@@ -54,7 +54,20 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
         [Route("")]
         public async Task<IHttpActionResult> Delete(string tokenId)
         {
-            var result = await _repository.RemoveRefreshToken(tokenId);
+            bool result;
+            if (User.IsInRole("Admin") || User.IsInRole("Owner")) //TODO: Send in all roles in one call ie. User.IsInRole("Admin, Owner");
+            {
+                result = await _repository.RemoveRefreshToken(tokenId);
+            }
+            else
+            {
+                var token =  _repository.GetAllRefreshTokens().FirstOrDefault(x => x.Equals(tokenId));
+                if (token == null)
+                    return BadRequest("No Token found with that Token Id");
+
+                result = await _repository.RemoveRefreshToken(token);
+            }
+            
             if (result)
             {
                 return Ok();
