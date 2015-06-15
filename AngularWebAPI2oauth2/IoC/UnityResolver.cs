@@ -6,10 +6,18 @@ using AngularWebAPI2oauth2.DAL;
 
 namespace AngularWebAPI2oauth2.IoC
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UnityResolver : IDependencyResolver
     {
         protected IUnityContainer Container;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="container"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public UnityResolver(IUnityContainer container)
         {
             if (container == null)
@@ -54,6 +62,10 @@ namespace AngularWebAPI2oauth2.IoC
             Container.Dispose();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static IUnityContainer GetUnityContainer()
         {
             var container = new UnityContainer();
