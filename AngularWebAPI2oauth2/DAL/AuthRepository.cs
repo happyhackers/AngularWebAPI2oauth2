@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace AngularWebAPI2oauth2.DAL
 {
     /// <summary>
-    /// 
+    /// Handles membership data access
     /// </summary>
     public class AuthRepository : IDisposable
     {
@@ -24,7 +24,6 @@ namespace AngularWebAPI2oauth2.DAL
         /// </summary>
         public AuthRepository()
         {
-
             _ctx = new AuthContext();
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
             _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_ctx));

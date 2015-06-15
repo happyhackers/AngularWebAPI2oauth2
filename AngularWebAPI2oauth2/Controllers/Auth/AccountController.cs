@@ -1,23 +1,27 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using AngularWebAPI2oauth2.DAL;
-using AngularWebAPI2oauth2.Models;
 using AngularWebAPI2oauth2.Models.Auth;
+using AngularWebAPI2oauth2.Models.Auth.BindingModels;
 using Microsoft.AspNet.Identity;
 
-namespace AngularWebAPI2oauth2.Controllers
+namespace AngularWebAPI2oauth2.Controllers.Auth
 {
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private readonly AuthRepository _repo;
+        private readonly AuthRepository _repository;
 
         public AccountController()
         {
-            _repo = new AuthRepository();
+            _repository = new AuthRepository();
         }
 
-        // POST api/Account/Register
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userModel"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(UserModel userModel)
@@ -27,7 +31,7 @@ namespace AngularWebAPI2oauth2.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await _repo.RegisterUser(userModel);
+            var result = await _repository.RegisterUser(userModel);
 
             var errorResult = GetErrorResult(result);
 
@@ -39,11 +43,27 @@ namespace AngularWebAPI2oauth2.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Changes user password
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [Route("ChangePassword")]
+        public async Task<IHttpActionResult> PutPassword(ChangePasswordBindingModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _repository.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+
+            return result.Succeeded ? Ok() : GetErrorResult(result);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                _repo.Dispose();
+                _repository.Dispose();
             }
 
             base.Dispose(disposing);
