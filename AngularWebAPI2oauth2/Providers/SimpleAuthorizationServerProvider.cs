@@ -87,14 +87,14 @@ namespace AngularWebAPI2oauth2.Providers
             }
 
             var props = new AuthenticationProperties(new Dictionary<string, string>
-                {
-                    { 
-                        "as:client_id", context.ClientId ?? string.Empty
-                    },
-                    { 
-                        "userName", context.UserName
-                    }
-                });
+            {
+                { 
+                    "as:client_id", context.ClientId ?? string.Empty
+                },
+                { 
+                    "userName", context.UserName
+                }
+            });
 
             var ticket = new AuthenticationTicket(identity, props);
             context.Validated(ticket);
