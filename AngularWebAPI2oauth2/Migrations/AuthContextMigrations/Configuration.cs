@@ -41,6 +41,8 @@ namespace AngularWebAPI2oauth2.Migrations.AuthContextMigrations
             });
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            
+            /* ..:: [ ROLES ] ::..*/
             var admin = new IdentityRole("Admin");
             if (!roleManager.RoleExists(admin.Name))
                 roleManager.Create(admin);
@@ -53,6 +55,7 @@ namespace AngularWebAPI2oauth2.Migrations.AuthContextMigrations
             if (userManager.Users.Any(u => u.UserName == "kalle"))
                 return;
 
+            /* ..:: [ CREATE USERS ] ::..*/
             var kalle = new IdentityUser
             {
                 UserName = "kalle",
@@ -66,6 +69,7 @@ namespace AngularWebAPI2oauth2.Migrations.AuthContextMigrations
                 UserName = "alban",
             };
 
+            /* ..:: [ CONFIG USERS ]::.. */
             userManager.Create(kalle, "kalle123");
             userManager.Create(peter, "peter123");
             userManager.Create(alban, "alban123");
