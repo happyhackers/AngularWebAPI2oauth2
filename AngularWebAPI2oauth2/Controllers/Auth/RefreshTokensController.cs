@@ -1,33 +1,59 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AngularWebAPI2oauth2.DAL;
 
 namespace AngularWebAPI2oauth2.Controllers.Auth
 {
+    /// <summary>
+    /// This resource represents all refreshtokens issued by the server.
+    /// It gives the ability to control user sessions
+    /// </summary>
+    [Authorize(Roles = "Admin, Owner")]
     [RoutePrefix("api/RefreshTokens")]
     public class RefreshTokensController : ApiController
     {
 
-        private readonly AuthRepository _repo;
+        private readonly AuthRepository _repository;
 
-        public RefreshTokensController()
+        /// <summary>
+        /// 
+        /// </summary>
+        public RefreshTokensController(AuthRepository repository)
         {
-            _repo = new AuthRepository();
+            _repository = repository;
         }
 
-        [Authorize(Users = "Admin")]
+        /// <summary>
+        /// Returns all refresh tokens
+        /// </summary>
+        /// <returns></returns>
         [Route("")]
-        public IHttpActionResult Get()
+        public IHttpActionResult GetRefreshTokens()
         {
-            return Ok(_repo.GetAllRefreshTokens());
+            return Ok(_repository.GetAllRefreshTokens());
         }
 
-        //[Authorize(Users = "Admin")]
-        [AllowAnonymous]
+        /// <summary>
+        /// Returns all user refresh tokens
+        /// </summary>
+        /// <returns></returns>
+        [Route("User")]
+        public IHttpActionResult GetUserTokens()
+        {
+            return Ok(_repository.GetAllRefreshTokens().Where(r => r.Subject == User.Identity.Name));
+        }
+
+        /// <summary>
+        /// Removing a refreshtoken invalidates a users session. 
+        /// When accesstoken gets invalid the user will need to reauthenticate
+        /// </summary>
+        /// <param name="tokenId"></param>
+        /// <returns></returns>
         [Route("")]
         public async Task<IHttpActionResult> Delete(string tokenId)
         {
-            var result = await _repo.RemoveRefreshToken(tokenId);
+            var result = await _repository.RemoveRefreshToken(tokenId);
             if (result)
             {
                 return Ok();
@@ -36,11 +62,12 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
 
         }
 
+        /// <remarks />
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                _repo.Dispose();
+                _repository.Dispose();
             }
 
             base.Dispose(disposing);
