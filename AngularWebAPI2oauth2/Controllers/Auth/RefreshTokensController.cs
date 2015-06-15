@@ -61,7 +61,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
             }
             else
             {
-                var token =  _repository.GetAllRefreshTokens().FirstOrDefault(x => x.Equals(tokenId));
+                var token =  _repository.GetAllRefreshTokens().FirstOrDefault(x => x.Id.Equals(tokenId));
                 if (token == null)
                     return BadRequest("No Token found with that Token Id");
 
