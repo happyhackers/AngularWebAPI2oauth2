@@ -89,11 +89,6 @@ namespace AngularWebAPI2oauth2.Providers
                 identity = repo.CreateClaimsIdentity(user, context.Options.AuthenticationType);
             }
 
-            //var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            //identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            //identity.AddClaim(new Claim("sub", context.UserName));
-            //identity.AddClaim(new Claim("role", "user"));
-
             var props = new AuthenticationProperties(new Dictionary<string, string>
                 {
                     { 
@@ -106,7 +101,6 @@ namespace AngularWebAPI2oauth2.Providers
 
             var ticket = new AuthenticationTicket(identity, props);
             context.Validated(ticket);
-
         }
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
