@@ -17,7 +17,8 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
         private readonly AuthRepository _repository;
 
         /// <summary>
-        /// 
+        /// Constructor for RefreshTokenController
+        /// <param name="repository"></param>
         /// </summary>
         public RefreshTokensController(AuthRepository repository)
         {
