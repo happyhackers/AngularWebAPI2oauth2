@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularWebAPI2oauth2", "AngularWebAPI2oauth2\AngularWebAPI2oauth2.csproj", "{19127652-6455-4C0B-9EEF-AE00CB1FAD5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2ExampleProjekt", "OAuth2ExampleProjekt\OAuth2ExampleProjekt.csproj", "{EA1951D0-7E6C-4004-856F-EECBD8388AEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{19127652-6455-4C0B-9EEF-AE00CB1FAD5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19127652-6455-4C0B-9EEF-AE00CB1FAD5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19127652-6455-4C0B-9EEF-AE00CB1FAD5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA1951D0-7E6C-4004-856F-EECBD8388AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1951D0-7E6C-4004-856F-EECBD8388AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1951D0-7E6C-4004-856F-EECBD8388AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1951D0-7E6C-4004-856F-EECBD8388AEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

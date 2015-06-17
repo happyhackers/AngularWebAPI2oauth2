@@ -7,11 +7,17 @@ using Microsoft.AspNet.Identity;
 
 namespace AngularWebAPI2oauth2.Controllers.Auth
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private readonly AuthRepository _repository;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public AccountController()
         {
             _repository = new AuthRepository();
