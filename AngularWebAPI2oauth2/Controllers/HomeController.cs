@@ -11,11 +11,11 @@ namespace AngularWebAPI2oauth2.Controllers
         /// 
         /// </summary>
         /// <returns>Returns the Index Page as a ActionResult</returns>
-        public ActionResult Index()
+        public void Index()
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+            RedirectToAction("Index", "Help");
         }
     }
 }

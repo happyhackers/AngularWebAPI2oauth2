@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace OAuth2ExampleProjekt
 {
@@ -8,24 +7,61 @@ namespace OAuth2ExampleProjekt
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                        "~/Content/Site.css",
+                        "~/Content/CSS-Reset/CSSReset.css",
+                        "~/Content/Bootstrap/bootstrap.min.css",
+                        "~/Content/Font-Awesome/font-awesome.min.css"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/vendor/external").Include(
+                        "~/Scripts/vendor/jquery-{version}.js",
+                        "~/Scripts/vendor/bootstrap.js",
+                        "~/Scripts/vendor/respond.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/vendor/angular").Include(
+                        "~/Scripts/vendor/angular.min.js",
+                        "~/Scripts/vendor/angular-ui-router.min.js",
+                        "~/Scripts/vendor/angular-animate.min.js",
+                        "~/Scripts/vendor/angular-resource.min.js",
+                        "~/Scripts/vendor/loading-bar.js",
+                        "~/Scripts/vendor/angular-local-storage.min.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/modules").IncludeDirectory(
+                        "~/Scripts/app/modules/",
+                        "*.js",
+                        true
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/services").IncludeDirectory(
+                        "~/Scripts/app/services/",
+                        "*.js",
+                        true
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/controllers").IncludeDirectory(
+                        "~/Scripts/app/controllers/",
+                        "*.js",
+                        true
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/filters").IncludeDirectory(
+                        "~/Scripts/app/filters/",
+                        "*.js",
+                        true
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/directives").IncludeDirectory(
+                        "~/Scripts/app/directives/",
+                        "*.js",
+                        true
+                        ));
+
+            // Set EnableOptimizations to false for debugging. For more information,
+            // visit http://go.microsoft.com/fwlink/?LinkId=301862
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

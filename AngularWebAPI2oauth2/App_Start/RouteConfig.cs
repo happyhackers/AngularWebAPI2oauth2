@@ -15,8 +15,8 @@ namespace AngularWebAPI2oauth2
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{area}/{controller}/{action}/{id}",
+                defaults: new { controller = "Help", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
