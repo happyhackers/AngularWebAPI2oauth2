@@ -32,11 +32,16 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
         [Route("Register")]
         public async Task<IHttpActionResult> Register(UserModel userModel)
         {
+            if (!await _repository.IsUsernameAvailable(userModel.UserName))
+            {
+                ModelState.AddModelError("userModel.Username", "Username is already in use.");
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            
             var result = await _repository.RegisterUser(userModel);
 
             var errorResult = GetErrorResult(result);

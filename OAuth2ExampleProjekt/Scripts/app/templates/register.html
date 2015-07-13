@@ -1,0 +1,15 @@
+﻿<div class="row">
+    <div class="col-lg-3 col-lg-offset-4">
+        <form role="form">
+            <h2>Register</h2>
+            <input type="text" class="form-control" placeholder="Username" data-ng-model="vm.userData.userName" required autofocus><span ng-repeat="usernameMessage in vm.usernameMessages" data-ng-hide="vm.usernameMessages.length === 0">{{usernameMessage}}</span>
+            <input type="password" class="form-control" placeholder="Password" data-ng-model="vm.userData.password" required><span ng-repeat="passwordMessage in vm.passwordMessages" data-ng-hide="vm.passwordMessages.length === 0">{{passwordMessage}}</span>
+            <input type="password" class="form-control" placeholder="Confirm Password" data-ng-model="vm.userData.confirmPassword" required>
+
+            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="vm.registerUser()">Register</button>
+            <div data-ng-hide="vm.message == ''" class="alert alert-danger">
+                {{vm.message}}
+            </div>
+        </form>
+    </div>
+</div>

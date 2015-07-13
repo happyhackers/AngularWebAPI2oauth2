@@ -9,7 +9,7 @@
 
     function authService($rootScope, $state, $http, $q, localStorageService, authSettings) {
         var service = {
-            authentication: { isAuth: false, userName: "", useRefreshTokens: false, roles: []},
+            authentication: { isAuth: false, userName: "", useRefreshTokens: false, roles: [] },
             authorize: authorize,
             fillAuthData: fillAuthData,
             isInAnyRole: isInAnyRole,

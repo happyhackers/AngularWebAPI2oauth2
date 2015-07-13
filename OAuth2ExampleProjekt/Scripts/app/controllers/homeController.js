@@ -4,12 +4,13 @@
     angular.module('app')
         .controller('homeController', homeController);
 
-    homeController.$inject = [];
+    homeController.$inject = ['authService'];
 
-    function homeController() {
+    function homeController(authService) {
         var vm = this;
 
         vm.welcomeMessage = "Welcome to your new SPA";
+        vm.user = authService.loginData;
 
         activate();
 

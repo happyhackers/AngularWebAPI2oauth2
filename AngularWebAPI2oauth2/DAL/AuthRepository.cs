@@ -37,11 +37,20 @@ namespace AngularWebAPI2oauth2.DAL
         /// <returns></returns>
         public async Task<IdentityResult> RegisterUser(UserModel userModel)
         {
-            var user = new IdentityUser
-            {
-                UserName = userModel.UserName
-            };
+            var user = await _userManager.FindByNameAsync(userModel.UserName);
 
+            if (user == null)
+            {
+                user = new IdentityUser
+                {
+                    UserName = userModel.UserName
+                };
+            }
+            else
+            {
+                return new IdentityResult("Username already exists");
+            }
+            
             var result = await _userManager.CreateAsync(user, userModel.Password);
 
             return result;
@@ -295,6 +304,17 @@ namespace AngularWebAPI2oauth2.DAL
             return await _userManager.RemoveFromRoleAsync(appUser.Id, role.Name);
         }
         #endregion
+
+        /// <summary>
+        /// Checks if the username is available
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public async Task<bool> IsUsernameAvailable(string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+            return user == null;
+        }
 
         /// <summary>
         /// 

@@ -45,6 +45,14 @@
                 templateUrl: '/Scripts/app/templates/home.html',
                 controller: 'homeController',
                 controllerAs: 'vm'
+            })
+            .state('register', {
+                parent: 'authed',
+                url: '/register',
+                data: { authed: true },
+                templateUrl: '/Scripts/app/templates/register.html',
+                controller: 'registerController',
+                controllerAs: 'vm'
             });
     };
 })();
