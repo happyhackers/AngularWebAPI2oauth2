@@ -51,7 +51,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
                 return errorResult;
             }
 
-            return Ok();
+            return Ok("Registration Complete");
         }
 
         /// <summary>

@@ -7,7 +7,7 @@
             <input type="password" class="form-control" placeholder="Confirm Password" data-ng-model="vm.userData.confirmPassword" required>
 
             <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="vm.registerUser()">Register</button>
-            <div data-ng-hide="vm.message == ''" class="alert alert-danger">
+            <div data-ng-hide="vm.message == ''" class="alert alert-success">
                 {{vm.message}}
             </div>
         </form>

@@ -41,10 +41,7 @@ namespace AngularWebAPI2oauth2.DAL
 
             if (user == null)
             {
-                user = new IdentityUser
-                {
-                    UserName = userModel.UserName
-                };
+                user = new IdentityUser { UserName = userModel.UserName };
             }
             else
             {
