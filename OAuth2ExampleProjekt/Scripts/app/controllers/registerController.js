@@ -5,9 +5,9 @@
         .module('app')
         .controller('registerController', registerController);
 
-    registerController.$inject = ['$state', 'authService', '$rootScope', '$http'];
+    registerController.$inject = ['$state', '$rootScope', '$http'];
 
-    function registerController($state, authService, $rootScope, $http) {
+    function registerController($state, $rootScope, $http) {
         var vm = this;
         vm.registerUser = register;
         vm.message = "";

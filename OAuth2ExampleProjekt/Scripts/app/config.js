@@ -53,6 +53,14 @@
                 templateUrl: '/Scripts/app/templates/register.html',
                 controller: 'registerController',
                 controllerAs: 'vm'
+            })
+            .state('account', {
+                parent: 'authed',
+                url: '/account',
+                data: { authed: true },
+                templateUrl: '/Scripts/app/templates/account.html',
+                controller: 'accountController',
+                controllerAs: 'vm'
             });
     };
 })();

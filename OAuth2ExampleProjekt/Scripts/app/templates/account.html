@@ -1,0 +1,18 @@
+﻿<div class="row">
+    <div class="col-lg-3 col-lg-offset-4">
+        <form role="form">
+            <h2>Change Password</h2>
+            <input type="password" class="form-control" placeholder="Old Password" data-ng-model="vm.newPassword.oldPassword" required autofocus>
+            <input type="password" class="form-control" placeholder="New Password" data-ng-model="vm.newPassword.newPassword" required>
+            <input type="password" class="form-control" placeholder="Confirm Password" data-ng-model="vm.newPassword.confirmPassword" required>
+            
+            <span ng-repeat="passwordMessage in vm.passwordMessages" data-ng-hide="vm.passwordMessages.length === 0">{{passwordMessage}}</span>
+            
+            <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="vm.changePassword()">Save</button>
+            
+            <div data-ng-hide="vm.message == ''" class="alert alert-success">
+                {{vm.message}}
+            </div>
+        </form>
+    </div>
+</div>

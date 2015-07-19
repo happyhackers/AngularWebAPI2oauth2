@@ -139,6 +139,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\config.js" />
+    <Content Include="Scripts\app\controllers\accountController.js" />
     <Content Include="Scripts\app\controllers\homeController.js" />
     <Content Include="Scripts\app\controllers\loginController.js" />
     <Content Include="Scripts\app\controllers\logoutController.js" />
@@ -150,6 +151,7 @@
     <Content Include="Scripts\app\modules\auth\services\httpInterceptorService.js" />
     <Content Include="Scripts\app\templates\accessdenied.html" />
     <Content Include="Scripts\app\templates\home.html" />
+    <Content Include="Scripts\app\templates\account.html" />
     <Content Include="Scripts\app\templates\login.html" />
     <Content Include="Scripts\app\templates\logout.html" />
     <Content Include="Content\Bootstrap\bootstrap.css" />
