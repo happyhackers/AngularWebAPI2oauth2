@@ -21,8 +21,6 @@
         function activate() {}
 
         function register() {
-            vm.usernameMessages = [];
-            vm.passwordMessages = [];
 
             $http.post('http://localhost:38268/api/Account/Register', vm.userData).then(success, error);
         }

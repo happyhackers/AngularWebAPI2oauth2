@@ -73,7 +73,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
                 return BadRequest(ModelState);
             }
 
-            return Ok();
+            return Ok("Password successfully changed");
         }
 
         protected override void Dispose(bool disposing)

@@ -24,7 +24,7 @@
         }
 
         function success(response) {
-            vm.message = "Password was successfully set";
+            vm.message = response.data;
         }
 
         function error(rejection) {
