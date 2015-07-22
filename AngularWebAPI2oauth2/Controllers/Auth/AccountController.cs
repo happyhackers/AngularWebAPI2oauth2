@@ -64,10 +64,16 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
+            
             var result = await _repository.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
 
-            return result.Succeeded ? Ok() : GetErrorResult(result);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("model.Password", "Invalid Password");
+                return BadRequest(ModelState);
+            }
+
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
