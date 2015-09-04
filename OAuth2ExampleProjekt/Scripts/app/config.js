@@ -7,7 +7,7 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
-
+        console.log("App Config");
         $urlRouterProvider.otherwise('/home');
 
         $stateProvider
