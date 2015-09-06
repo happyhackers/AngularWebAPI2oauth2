@@ -7,8 +7,8 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
-        console.log("App Config");
-        $urlRouterProvider.otherwise('/home');
+
+        $urlRouterProvider.otherwise(otherwiseDelegate);
 
         $stateProvider
             .state('login', {
@@ -62,5 +62,12 @@
                 controller: 'accountController',
                 controllerAs: 'vm'
             });
+
+        otherwiseDelegate.$inject = ['$injector'];
+
+        function otherwiseDelegate($injector) {
+            var $state = $injector.get("$state");
+            $state.go('home');
+        }
     };
 })();

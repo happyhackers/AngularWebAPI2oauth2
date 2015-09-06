@@ -15,6 +15,8 @@
 
     config.$inject = ['$httpProvider'];
 
+    var zero = 0;
+
     function config($httpProvider) {
         $httpProvider.interceptors.push('httpInterceptorService');
     }
@@ -23,10 +25,11 @@
 
     function run($rootScope, $state, $stateParams, authService) {
         authService.fillAuthData();
+
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
-            console.log("Auth Config");
+
             if (!authService.authorize())
                 event.preventDefault(); //If authorize fails then we reject the transitionpromise
         });
