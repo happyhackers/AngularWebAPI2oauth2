@@ -28,32 +28,12 @@
         }
 
         function error(rejection) {
-            try {
-                for (var i = 0; i < rejection.data.modelState["model.NewPassword"].length; i++) {
-                    vm.passwordMessages.push(rejection.data.modelState["model.NewPassword"][i]);
+            var modelState = rejection.data.modelState;
+            for (var errorType in modelState) {
+                for (var errorNumber in modelState[errorType]) {
+                    vm.passwordMessages.push(modelState[errorType][errorNumber]);
                 }
-            } catch (e) {
-
             }
-
-            try {
-                
-                for (var j = 0; j < rejection.data.modelState["model.ConfirmPassword"].length; j++) {
-                    vm.passwordMessages.push(rejection.data.modelState["model.ConfirmPassword"][j]);
-                }
-            } catch (e) {
-
-            }
-
-            try {
-
-                for (var j = 0; j < rejection.data.modelState["model.Password"].length; j++) {
-                    vm.passwordMessages.push(rejection.data.modelState["model.Password"][j]);
-                }
-            } catch (e) {
-                
-            }
-            
         }
     };
 })();
