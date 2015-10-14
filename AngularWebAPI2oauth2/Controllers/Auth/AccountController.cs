@@ -69,7 +69,7 @@ namespace AngularWebAPI2oauth2.Controllers.Auth
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("model.Password", "Invalid Password");
+                ModelState.AddModelError("model.Password", "Incorrect Password");
                 return BadRequest(ModelState);
             }
 
